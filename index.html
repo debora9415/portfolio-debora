@@ -35,6 +35,8 @@ max-width:1200px;
 margin:auto;
 }
 
+/* ── HEADER ── */
+
 header{
 min-height:100vh;
 display:flex;
@@ -43,13 +45,15 @@ background:
 radial-gradient(circle at top right,#2563eb 0%,transparent 40%),
 radial-gradient(circle at bottom left,#7c3aed 0%,transparent 40%),
 #0f172a;
+padding:60px 0;
 }
 
 .hero{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-align-items:center;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+gap:30px;
+max-width:700px;
 }
 
 .badge{
@@ -58,25 +62,25 @@ padding:8px 18px;
 border-radius:30px;
 border:1px solid rgba(255,255,255,.15);
 color:#60a5fa;
-margin-bottom:20px;
+font-size:.9rem;
 }
 
 h1{
-font-size:4rem;
+font-size:clamp(2.2rem, 5vw, 4rem);
 line-height:1.1;
-margin-bottom:20px;
 }
 
 .gradient{
 background:linear-gradient(90deg,#60a5fa,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+background-clip:text;
 }
 
 .hero p{
 color:#cbd5e1;
-font-size:1.1rem;
-margin-bottom:30px;
+font-size:clamp(1rem, 2.2vw, 1.15rem);
+max-width:600px;
 }
 
 .buttons{
@@ -90,7 +94,9 @@ padding:14px 25px;
 border-radius:12px;
 text-decoration:none;
 font-weight:600;
+font-size:.95rem;
 transition:.3s;
+display:inline-block;
 }
 
 .btn-primary{
@@ -100,6 +106,7 @@ color:white;
 
 .btn-primary:hover{
 transform:translateY(-3px);
+box-shadow:0 8px 24px rgba(37,99,235,.4);
 }
 
 .btn-outline{
@@ -107,38 +114,24 @@ border:1px solid #334155;
 color:white;
 }
 
-.profile-card{
-display:flex;
-justify-content:center;
+.btn-outline:hover{
+border-color:#60a5fa;
+color:#60a5fa;
 }
 
-.profile-photo{
-width:420px;
-max-width:100%;
-border-radius:30px;
-
-box-shadow:
-0 0 40px rgba(37,99,235,.25),
-0 0 100px rgba(124,58,237,.20);
-
-transition:.4s;
-}
-
-.profile-photo:hover{
-transform:translateY(-8px);
-}
+/* ── SECTIONS ── */
 
 section{
-padding:100px 0;
+padding:80px 0;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:60px;
+margin-bottom:50px;
 }
 
 .section-title h2{
-font-size:2.7rem;
+font-size:clamp(1.8rem, 3.5vw, 2.7rem);
 margin-bottom:10px;
 }
 
@@ -146,15 +139,17 @@ margin-bottom:10px;
 color:#94a3b8;
 }
 
+/* ── SKILLS ── */
+
 .skills{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
 .skill-card{
 background:#111c35;
-padding:30px;
+padding:28px;
 border-radius:20px;
 transition:.3s;
 }
@@ -164,20 +159,68 @@ transform:translateY(-6px);
 }
 
 .skill-card h3{
-margin-bottom:15px;
+margin-bottom:12px;
 color:#60a5fa;
+font-size:1rem;
 }
 
-.card{
+.skill-card p{
+color:#94a3b8;
+font-size:.9rem;
+line-height:1.5;
+}
+
+/* ── SOBRE MIM ── */
+
+.sobre-card{
 background:#111c35;
-padding:35px;
+padding:40px;
 border-radius:20px;
 }
 
+.sobre-inner{
+display:flex;
+gap:35px;
+align-items:flex-start;
+}
+
+.avatar-wrap{
+flex-shrink:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+
+.avatar{
+width:110px;
+height:110px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #2563eb;
+box-shadow:0 0 24px rgba(37,99,235,.35);
+}
+
+.avatar-name{
+font-size:.85rem;
+font-weight:600;
+color:#60a5fa;
+text-align:center;
+white-space:nowrap;
+}
+
+.sobre-text{
+color:#cbd5e1;
+line-height:1.8;
+font-size:.975rem;
+}
+
+/* ── CLIENTS ── */
+
 .clients{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
 }
 
 .client{
@@ -186,15 +229,37 @@ padding:25px;
 border-radius:20px;
 }
 
+.client h3{
+margin-bottom:8px;
+font-size:1rem;
+}
+
 .client a{
 color:#60a5fa;
 text-decoration:none;
+font-size:.9rem;
 }
+
+.client a:hover{
+text-decoration:underline;
+}
+
+.client p{
+color:#94a3b8;
+font-size:.9rem;
+margin-top:6px;
+}
+
+.client p strong{
+color:#cbd5e1;
+}
+
+/* ── SOFT SKILLS ── */
 
 .soft-skills{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
 .soft{
@@ -203,21 +268,55 @@ padding:25px;
 border-radius:20px;
 }
 
+.soft h3{
+margin-bottom:10px;
+font-size:1rem;
+color:#e2e8f0;
+}
+
+.soft p{
+color:#94a3b8;
+font-size:.9rem;
+}
+
+/* ── FOOTER ── */
+
 footer{
 background:#020617;
 padding:60px 20px;
 text-align:center;
 }
 
+footer h2{
+font-size:clamp(1.4rem, 3vw, 2rem);
+margin-bottom:12px;
+}
+
+footer p{
+color:#94a3b8;
+margin-bottom:24px;
+}
+
 footer a{
 color:#60a5fa;
 text-decoration:none;
+font-weight:600;
 }
 
-@media(max-width:900px){
+footer a:hover{
+text-decoration:underline;
+}
+
+/* ── RESPONSIVE ── */
+
+@media(max-width:640px){
+
+header{
+padding:80px 0 60px;
+}
 
 .hero{
-grid-template-columns:1fr;
+align-items:center;
 text-align:center;
 }
 
@@ -225,8 +324,37 @@ text-align:center;
 justify-content:center;
 }
 
-h1{
-font-size:2.8rem;
+.sobre-inner{
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+
+.sobre-card{
+padding:28px 20px;
+}
+
+.skills,
+.clients,
+.soft-skills{
+grid-template-columns:1fr;
+}
+
+section{
+padding:60px 0;
+}
+
+}
+
+@media(min-width:641px) and (max-width:900px){
+
+.skills,
+.soft-skills{
+grid-template-columns:repeat(2,1fr);
+}
+
+.clients{
+grid-template-columns:repeat(2,1fr);
 }
 
 }
@@ -236,262 +364,219 @@ font-size:2.8rem;
 
 <body>
 
+<!-- ── HERO ── -->
 <header>
+  <div class="container">
+    <div class="hero">
 
-<div class="container hero">
+      <span class="badge">SEO • Conteúdo Estratégico • Marketing Digital</span>
 
-<div>
+      <h1>
+        Débora Machado<br>
+        <span class="gradient">Conteúdo que gera visibilidade e resultados</span>
+      </h1>
 
-<span class="badge">
-SEO • Conteúdo Estratégico • Marketing Digital
-</span>
+      <p>
+        Analista de SEO com foco em estratégia de conteúdo, redação otimizada para mecanismos de busca e crescimento orgânico.
+        Ajudo empresas a transformar conteúdo em tráfego qualificado, autoridade digital e oportunidades de negócio.
+      </p>
 
-<h1>
-Débora M.<br>
-<span class="gradient">
-Conteúdo que gera visibilidade e resultados
-</span>
-</h1>
+      <div class="buttons">
+        <a href="#clientes" class="btn btn-primary">Empresas Atendidas</a>
+        <a href="https://www.linkedin.com/in/d%C3%A9bora-m-722411142/" target="_blank" class="btn btn-outline">LinkedIn</a>
+      </div>
 
-<p>
-Analista de SEO com foco em estratégia de conteúdo, redação otimizada para mecanismos de busca e crescimento orgânico.
-
-Ajudo empresas a transformar conteúdo em tráfego qualificado, autoridade digital e oportunidades de negócio.
-</p>
-
-<div class="buttons">
-
-<a href="#clientes" class="btn btn-primary">
-Empresas Atendidas
-</a>
-
-<a href="https://www.linkedin.com/in/d%C3%A9bora-m-722411142/" target="_blank" class="btn btn-outline">
-LinkedIn
-</a>
-
-</div>
-
-</div>
-
-<div class="profile-card">
-
-<img src="images/debora.jpg"
-alt="Débora M."
-class="profile-photo">
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </header>
 
+<!-- ── HABILIDADES ── -->
 <section>
+  <div class="container">
+    <div class="skills">
 
-<div class="container">
+      <div class="skill-card">
+        <h3>✍️ Redação SEO</h3>
+        <p>Produção de conteúdos otimizados para mecanismos de busca e intenção do usuário.</p>
+      </div>
 
-<div class="skills">
+      <div class="skill-card">
+        <h3>🔎 Pesquisa de Palavras-chave</h3>
+        <p>Identificação de oportunidades para aumentar tráfego orgânico e relevância.</p>
+      </div>
 
-<div class="skill-card">
-<h3>✍️ Redação SEO</h3>
-<p>
-Produção de conteúdos otimizados para mecanismos de busca e intenção do usuário.
-</p>
-</div>
+      <div class="skill-card">
+        <h3>📈 Análise de Performance</h3>
+        <p>Monitoramento de indicadores e acompanhamento de resultados.</p>
+      </div>
 
-<div class="skill-card">
-<h3>🔎 Pesquisa de Palavras-chave</h3>
-<p>
-Identificação de oportunidades para aumentar tráfego orgânico e relevância.
-</p>
-</div>
+      <div class="skill-card">
+        <h3>🛒 SEO para E-commerce</h3>
+        <p>Otimização de categorias, produtos e páginas estratégicas.</p>
+      </div>
 
-<div class="skill-card">
-<h3>📈 Análise de Performance</h3>
-<p>
-Monitoramento de indicadores e acompanhamento de resultados.
-</p>
-</div>
-
-<div class="skill-card">
-<h3>🛒 SEO para E-commerce</h3>
-<p>
-Otimização de categorias, produtos e páginas estratégicas.
-</p>
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
+<!-- ── SOBRE MIM ── -->
 <section id="sobre">
+  <div class="container">
 
-<div class="container">
+    <div class="section-title">
+      <h2>Sobre Mim</h2>
+      <p>Marketing Digital orientado por conteúdo e resultados.</p>
+    </div>
 
-<div class="section-title">
-<h2>Sobre Mim</h2>
-<p>Marketing Digital orientado por conteúdo e resultados.</p>
-</div>
+    <div class="sobre-card">
+      <div class="sobre-inner">
 
-<div class="card">
+        <div class="avatar-wrap">
+          <img src="images/debora.jpg" alt="Débora Machado" class="avatar">
+          <span class="avatar-name">Débora Machado</span>
+        </div>
 
-<p>
+        <p class="sobre-text">
+          Profissional de Marketing Digital com foco em SEO, redação estratégica e marketing de conteúdo.
+          Atuo na construção de estratégias voltadas para crescimento orgânico, produção de conteúdo otimizado para mecanismos de busca e fortalecimento da presença digital de empresas dos mais diversos segmentos.
+          <br><br>
+          Minha experiência envolve planejamento editorial, pesquisa de palavras-chave, otimização de conteúdo, análise de desempenho e apoio na geração de oportunidades através de canais orgânicos.
+          <br><br>
+          Acredito que conteúdo relevante, aliado à análise de dados, é um dos caminhos mais consistentes para gerar autoridade, tráfego qualificado e resultados sustentáveis.
+        </p>
 
-Profissional de Marketing Digital com foco em SEO, redação estratégica e marketing de conteúdo.
+      </div>
+    </div>
 
-Atuo na construção de estratégias voltadas para crescimento orgânico, produção de conteúdo otimizado para mecanismos de busca e fortalecimento da presença digital de empresas dos mais diversos segmentos.
-
-Minha experiência envolve planejamento editorial, pesquisa de palavras-chave, otimização de conteúdo, análise de desempenho e apoio na geração de oportunidades através de canais orgânicos.
-
-Acredito que conteúdo relevante, aliado à análise de dados, é um dos caminhos mais consistentes para gerar autoridade, tráfego qualificado e resultados sustentáveis.
-
-</p>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- ── CLIENTES ── -->
 <section id="clientes">
+  <div class="container">
 
-<div class="container">
+    <div class="section-title">
+      <h2>Empresas Atendidas</h2>
+      <p>Projetos e experiências profissionais.</p>
+    </div>
 
-<div class="section-title">
-<h2>Empresas Atendidas</h2>
-<p>Projetos e experiências profissionais.</p>
-</div>
+    <div class="clients">
 
-<div class="clients">
+      <div class="client">
+        <h3>Collect ABA</h3>
+        <a href="https://www.collectaba.com/" target="_blank">Visitar site</a>
+      </div>
 
-<div class="client">
-<h3>Collect ABA</h3>
-<a href="https://www.collectaba.com/" target="_blank">Visitar site</a>
-</div>
+      <div class="client">
+        <h3>Wise Offices</h3>
+        <a href="https://wiseoffices.com.br/" target="_blank">Visitar site</a>
+      </div>
 
-<div class="client">
-<h3>Wise Offices</h3>
-<a href="https://wiseoffices.com.br/" target="_blank">Visitar site</a>
-</div>
+      <div class="client">
+        <h3>Lojas Edmil</h3>
+        <a href="https://www.lojasedmil.com.br/" target="_blank">Visitar site</a>
+      </div>
 
-<div class="client">
-<h3>Lojas Edmil</h3>
-<a href="https://www.lojasedmil.com.br/" target="_blank">Visitar site</a>
-</div>
+      <div class="client">
+        <h3>Limite na Hora</h3>
+        <a href="https://limitenahora.com.br/" target="_blank">Visitar site</a>
+      </div>
 
-<div class="client">
-<h3>Limite na Hora</h3>
-<a href="https://limitenahora.com.br/" target="_blank">Visitar site</a>
-</div>
+      <div class="client">
+        <h3>ITGLOBAL Brasil</h3>
+        <a href="https://br.itglobal.com/" target="_blank">Visitar site</a>
+      </div>
 
-<div class="client">
-<h3>ITGLOBAL Brasil</h3>
-<a href="https://br.itglobal.com/" target="_blank">Visitar site</a>
-</div>
+      <div class="client">
+        <h3>Lopes Moradia Carioca</h3>
+        <a href="https://www.lopesmoradiacarioca.com.br/" target="_blank">Visitar site</a>
+      </div>
 
-<div class="client">
-<h3>Lopes Moradia Carioca</h3>
-<a href="https://www.lopesmoradiacarioca.com.br/" target="_blank">Visitar site</a>
-</div>
+    </div>
 
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- ── CASES ── -->
 <section id="cases">
+  <div class="container">
 
-<div class="container">
+    <div class="section-title">
+      <h2>Resultados & Cases</h2>
+      <p>Preencher posteriormente com resultados reais.</p>
+    </div>
 
-<div class="section-title">
-<h2>Resultados & Cases</h2>
-<p>Preencher posteriormente com resultados reais.</p>
-</div>
+    <div class="clients">
 
-<div class="clients">
+      <div class="client">
+        <h3>CASE #01</h3>
+        <p><strong>Cliente:</strong> [Preencher]</p>
+        <p><strong>Objetivo:</strong> [Preencher]</p>
+        <p><strong>Estratégia:</strong> [Preencher]</p>
+        <p><strong>Resultado:</strong> [Preencher]</p>
+      </div>
 
-<div class="client">
-<h3>CASE #01</h3>
-<p><strong>Cliente:</strong> [Preencher]</p>
-<p><strong>Objetivo:</strong> [Preencher]</p>
-<p><strong>Estratégia:</strong> [Preencher]</p>
-<p><strong>Resultado:</strong> [Preencher]</p>
-</div>
+      <div class="client">
+        <h3>CASE #02</h3>
+        <p><strong>Cliente:</strong> [Preencher]</p>
+        <p><strong>Objetivo:</strong> [Preencher]</p>
+        <p><strong>Estratégia:</strong> [Preencher]</p>
+        <p><strong>Resultado:</strong> [Preencher]</p>
+      </div>
 
-<div class="client">
-<h3>CASE #02</h3>
-<p><strong>Cliente:</strong> [Preencher]</p>
-<p><strong>Objetivo:</strong> [Preencher]</p>
-<p><strong>Estratégia:</strong> [Preencher]</p>
-<p><strong>Resultado:</strong> [Preencher]</p>
-</div>
+      <div class="client">
+        <h3>CASE #03</h3>
+        <p><strong>Cliente:</strong> [Preencher]</p>
+        <p><strong>Objetivo:</strong> [Preencher]</p>
+        <p><strong>Estratégia:</strong> [Preencher]</p>
+        <p><strong>Resultado:</strong> [Preencher]</p>
+      </div>
 
-<div class="client">
-<h3>CASE #03</h3>
-<p><strong>Cliente:</strong> [Preencher]</p>
-<p><strong>Objetivo:</strong> [Preencher]</p>
-<p><strong>Estratégia:</strong> [Preencher]</p>
-<p><strong>Resultado:</strong> [Preencher]</p>
-</div>
+    </div>
 
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- ── SOFT SKILLS ── -->
 <section>
+  <div class="container">
 
-<div class="container">
+    <div class="section-title">
+      <h2>Habilidades Comportamentais</h2>
+    </div>
 
-<div class="section-title">
-<h2>Habilidades Comportamentais</h2>
-</div>
+    <div class="soft-skills">
 
-<div class="soft-skills">
+      <div class="soft">
+        <h3>Pensamento Analítico</h3>
+        <p>Capacidade de transformar dados em decisões estratégicas.</p>
+      </div>
 
-<div class="soft">
-<h3>Pensamento Analítico</h3>
-<p>Capacidade de transformar dados em decisões estratégicas.</p>
-</div>
+      <div class="soft">
+        <h3>Organização</h3>
+        <p>Gestão eficiente de projetos, prazos e prioridades.</p>
+      </div>
 
-<div class="soft">
-<h3>Organização</h3>
-<p>Gestão eficiente de projetos, prazos e prioridades.</p>
-</div>
+      <div class="soft">
+        <h3>Comunicação</h3>
+        <p>Facilidade em traduzir informações em ações práticas.</p>
+      </div>
 
-<div class="soft">
-<h3>Comunicação</h3>
-<p>Facilidade em traduzir informações em ações práticas.</p>
-</div>
+      <div class="soft">
+        <h3>Aprendizado Contínuo</h3>
+        <p>Busca constante por atualização e evolução profissional.</p>
+      </div>
 
-<div class="soft">
-<h3>Aprendizado Contínuo</h3>
-<p>Busca constante por atualização e evolução profissional.</p>
-</div>
+    </div>
 
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- ── FOOTER ── -->
 <footer>
-
-<h2>Vamos conversar?</h2>
-
-<p>
-Estou aberta a oportunidades em SEO, Marketing Digital e Conteúdo.
-</p>
-
-<br>
-
-<a href="https://www.linkedin.com/in/d%C3%A9bora-m-722411142/" target="_blank">
-Conectar no LinkedIn
-</a>
-
+  <h2>Vamos conversar?</h2>
+  <p>Estou aberta a oportunidades em SEO, Marketing Digital e Conteúdo.</p>
+  <a href="https://www.linkedin.com/in/d%C3%A9bora-m-722411142/" target="_blank">Conectar no LinkedIn</a>
 </footer>
 
 </body>
